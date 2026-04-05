@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap");
+
+@import "tailwindcss";
+
+
+:root {
+  /* =========================
+     FONTS
+  ========================= */
+  --font-monrope: "Manrope", sans-serif;
+  --font-inter: "Inter", sans-serif;
+
+  /* =========================
+     CORE COLORS
+  ========================= */
+  --primary: #004ac6;
+  --primary-container: #2563eb;
+  --on-primary: #ffffff;
+
+  --tertiary: #006242;
+  --tertiary-container: #d8f3e8;
+  --on-tertiary-container: #0f3b2d;
+
+  --surface: #f7f9fb;
+  --surface-container-low: #f2f4f6;
+  --surface-container-lowest: #ffffff;
+  --surface-container-high: #e6e8ea;
+  --surface-container-highest: #dde2e7;
+
+  --on-surface: #191c1e;
+  --on-surface-variant: #5f6b76;
+
+  --outline: #c3c6d7;
+  --outline-ghost-15: rgba(195, 198, 215, 0.15);
+  --outline-ghost-40: rgba(195, 198, 215, 0.4);
+
+  --primary-fixed: #b9d0ff;
+
+  /* =========================
+     GRADIENTS
+  ========================= */
+  --gradient-primary: linear-gradient(135deg, #004ac6, #2563eb);
+
+  /* =========================
+     GLASS / FROSTED EFFECT
+  ========================= */
+  --glass-surface: rgba(255, 255, 255, 0.8);
+  --glass-blur: 20px;
+
+  /* =========================
+     TYPOGRAPHY SCALE
+  ========================= */
+  --text-display-lg: 3.5rem; /* 56px */
+  --text-headline-md: 1.75rem; /* 28px */
+  --text-title-lg: 1.375rem; /* 22px */
+  --text-body-lg: 1rem; /* 16px */
+  --text-label-sm: 0.6875rem; /* 11px */
+
+  --leading-display: 1.2;
+  --leading-headline: 1.2;
+  --leading-body: 1.6;
+
+  /* =========================
+     RADIUS
+  ========================= */
+  --radius-lg: 1rem; /* 16px */
+  --radius-xl: 1.5rem; /* 24px */
+  --radius-full: 9999px;
+
+  /* =========================
+     SPACING
+  ========================= */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.2rem; /* 19.2px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 6rem; /* 96px */
+  --space-24: 8.5rem; /* 136px */
+
+  /* =========================
+     SHADOWS / DEPTH
+  ========================= */
+  --shadow-ambient-sm: 0 8px 32px rgba(25, 28, 30, 0.06);
+  --shadow-ambient-lg: 0 8px 48px rgba(25, 28, 30, 0.06);
+
+  /* =========================
+     TRANSITIONS
+  ========================= */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+}
+
+body {
+  @apply m-0;
+}
+
+a.active {
+  color: var(--primary);
+}
+a.active hr {
+  display: block;
+  color: var(--primary);
+}
+
+.container {
+  @apply w-full max-w-[1440px] mx-auto px-4 sm:px-[1vw] md:px-[2vw] lg:px-[3vw];
+}
+.active-underline {
+  @apply border-none hidden h-[2px]  bg-[var(--primary)];
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--on-primary);
+  border-radius: var(--radius-xl);
+}
+
+.text-display-lg {
+  font-size: var(--text-display-lg);
+  line-height: var(--leading-display);
+  font-family: var(--font-monrope);
+}
+
+.text-headline-md {
+  font-size: var(--text-headline-md);
+  line-height: var(--leading-headline);
+  font-family: var(--font-monrope);
+}
+
+.text-body-lg {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  font-family: var(--font-inter);
+}
