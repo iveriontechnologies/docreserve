@@ -1,4 +1,3 @@
-import React from "react";
 import { assets } from "../../../assets/images/assets";
 import DoctorExperienceCard from "../../../components/ui/DoctorExperienceCard";
 import { service_card2 } from "../../../assets/icons/icons";
