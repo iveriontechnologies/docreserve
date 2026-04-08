@@ -23,9 +23,7 @@ const ContactPage = () => {
         <div className="mt-10 flex flex-col lg:flex-row gap-10">
           {/* ================Left=============== */}
           <form className="flex flex-col gap-4 bg-[var(--surface-container-lowest)] px-10 py-10 rounded-[var(--radius-xl)] w-full lg:w-1/2">
-            <h3 className="text-headline-md font-medium">
-              Send a Message
-            </h3>
+            <h3 className="text-headline-md font-medium">Send a Message</h3>
             <div className="flex justify-between items-center gap-8">
               <Input name={"First Name"} placeholder={"John"} type="text" />
               <Input name={"Last Name"} placeholder={"Doe"} type="text" />
@@ -61,7 +59,7 @@ const ContactPage = () => {
               />
             </div>
 
-            <Button name={"Send Message"} py={4} />
+            <Button name={"Send Message"} size="lg" />
           </form>
           {/* ================Right============== */}
           <div className="flex flex-col gap-10 md:flex-row lg:flex-col">
