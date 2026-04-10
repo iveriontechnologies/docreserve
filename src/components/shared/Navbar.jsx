@@ -1,8 +1,8 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-[var(--surface-container-lowest)]">
       <div className="container flex justify-between items-center py-2">
@@ -32,7 +32,7 @@ const Navbar = () => {
           </NavLink>
         </ul>
 
-        <Button name={"Book Now"} />
+        <Button name={"Book Now"} onClick={() => navigate("/book")} />
       </div>
     </div>
   );

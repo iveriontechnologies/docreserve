@@ -5,10 +5,20 @@ import phone_icon from "./phone.png";
 import email_icon from "./email_icon.png";
 import clock_icon from "./clock_icon.png";
 import location_icon from "./location.png";
+import select_service_icon from "./booking_select_service.png";
+import personal_info_icon from "./personal_info_icon.png";
+import book_summary_service_icon from "./book_summary_service.png";
+import booking_summary_calender_icon from "./booking_summary_calender_icon.png";
+import booking_summary_time_icon from './booking_summary_time_icon.png'
 
 export const icons = {
   right_arrow,
   clock_icon,
+  select_service_icon,
+  personal_info_icon,
+  book_summary_service_icon,
+  booking_summary_calender_icon,
+  booking_summary_time_icon,
 };
 
 export const service_card = [
@@ -60,4 +70,16 @@ export const contact_details = [
     name: "Email",
     detail: "care@docreserve.com",
   },
+];
+
+export const time_slots = [
+  { time: "9:00 AM", isAvailable: true, isBooked: false },
+  { time: "10:00 AM", isAvailable: false, isBooked: false },
+  { time: "11:00 AM", isAvailable: true, isBooked: true },
+  { time: "12:00 PM", isAvailable: true, isBooked: false },
+  { time: "1:00 PM", isAvailable: true, isBooked: false },
+  { time: "2:00 PM", isAvailable: true, isBooked: false },
+  { time: "3:00 PM", isAvailable: true, isBooked: false },
+  { time: "4:00 PM", isAvailable: false, isBooked: true },
+  { time: "5:00 PM", isAvailable: true, isBooked: false },
 ];
