@@ -9,7 +9,11 @@ import select_service_icon from "./booking_select_service.png";
 import personal_info_icon from "./personal_info_icon.png";
 import book_summary_service_icon from "./book_summary_service.png";
 import booking_summary_calender_icon from "./booking_summary_calender_icon.png";
-import booking_summary_time_icon from './booking_summary_time_icon.png'
+import booking_summary_time_icon from "./booking_summary_time_icon.png";
+import display404 from "./404Display.png";
+import not_found_home from "./notFoundHome.png";
+import not_found_services from "./our_service_not_found.png";
+import not_found_book from "./book_appointment_not_found.png";
 
 export const icons = {
   right_arrow,
@@ -19,6 +23,7 @@ export const icons = {
   book_summary_service_icon,
   booking_summary_calender_icon,
   booking_summary_time_icon,
+  display404,
 };
 
 export const service_card = [
@@ -82,4 +87,28 @@ export const time_slots = [
   { time: "3:00 PM", isAvailable: true, isBooked: false },
   { time: "4:00 PM", isAvailable: false, isBooked: true },
   { time: "5:00 PM", isAvailable: true, isBooked: false },
+];
+
+export const not_found_card = [
+  {
+    name: "Return to Home",
+    text: "Return to our main portal to start your journey again.",
+    icon: not_found_home,
+    color: "bg-cyan-300/40",
+    link: "/",
+  },
+  {
+    name: "Our Services",
+    text: "Explore our range of clinical specialties and treatments.",
+    icon: not_found_services,
+    color: "bg-emerald-300/40",
+    link: "/services",
+  },
+  {
+    name: "Book Appointment",
+    text: "Schedule a consultation with our healthcare professionals.",
+    icon: not_found_book,
+    color: "bg-slate-300/40",
+    link: "/book",
+  },
 ];
