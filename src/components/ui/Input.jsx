@@ -1,10 +1,10 @@
 const Input = ({
   name,
   placeholder,
-  type,
+  type = "text",
   value,
   onChange,
-  inputName = "",
+  inputName,
 }) => {
   return (
     <div className="flex flex-col gap-2 w-full">
