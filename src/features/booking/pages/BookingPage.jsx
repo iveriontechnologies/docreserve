@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-day-picker/dist/style.css";
 import BookingCalendar from "../components/BookingCalender";
 import { icons, time_slots } from "../../../assets/icons/icons";
@@ -6,26 +6,52 @@ import TimeSlots from "../components/TimeSlots";
 import Input from "../../../components/ui/Input";
 import Button from "../../../components/shared/Button";
 import BookingSummary from "../components/BookingSummary";
+import { useCreateBooking } from "../hooks/useCreateBooking";
+import useBookingStore from "../store/bookingStore";
 
 const BookingPage = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState("");
-  const [selectedService, setSelectedService] = useState("");
-  const [patientInfo, setPatientInfo] = useState({
-    fullName: "",
-    email: "",
-    phone: "",
-    reason: "",
-  });
+  const {
+    selectedDate,
+    selectedTime,
+    selectedService,
+    patientInfo,
+    setSelectedDate,
+    setSelectedTime,
+    setSelectedService,
+    setPatientInfo,
+    resetBooking,
+  } = useBookingStore();
+
+  const { mutateAsync, isPending } = useCreateBooking();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setPatientInfo((prev) => ({ ...prev, [name]: value }));
+    setPatientInfo(name, value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const bookingData = {
+        service: selectedService,
+        appointment_date: selectedDate.toISOString().split("T")[0],
+        appointment_time: selectedTime,
+        full_name: patientInfo.fullName,
+        email: patientInfo.email,
+        phone: patientInfo.phone,
+        reason: patientInfo.reason,
+        status: "pending",
+      };
+      const result = await mutateAsync(bookingData);
+      console.log("Booking saved:", result);
+
+      resetBooking();
+    } catch (error) {
+      console.error("Booking failed:", error);
+    }
   };
 
+  const dateValue =
+    selectedDate instanceof Date ? selectedDate : new Date(selectedDate);
   const bookingSummary = [
     {
       icon: icons.book_summary_service_icon,
@@ -36,7 +62,7 @@ const BookingPage = () => {
       icon: icons.booking_summary_calender_icon,
       label: "Date",
       value: selectedDate
-        ? selectedDate.toLocaleDateString(undefined, {
+        ? dateValue.toLocaleDateString(undefined, {
             weekday: "long",
             year: "numeric",
             month: "long",
@@ -81,7 +107,7 @@ const BookingPage = () => {
                 </h3>
                 <select
                   className="w-full border-none rounded-full px-4 py-2 bg-[var(--surface-container-high)] text-sm sm:text-base font-normal [font-family:var(--font-inter)] text-[var(--on-surface-variant)]"
-                  value={selectedService}
+                  // value={selectedService}
                   onChange={(e) => setSelectedService(e.target.value)}
                 >
                   <option value="">Select One</option>
@@ -180,6 +206,7 @@ const BookingPage = () => {
                 <Button
                   name={"Confirm Booking"}
                   size={"lg"}
+                  type="submit"
                   onClick={() => console.log("")}
                 />
               </div>
